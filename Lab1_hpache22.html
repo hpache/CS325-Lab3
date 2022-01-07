@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<!-- 
+File: Lab1_hpache22.html
+Name: Henry Pacheco Cachon
+Class: CS325, January 2022
+Lab: 01
+Due: 4 January 2022
+
+For this project I used the nav, span, script, and iframe tags. I used the nav tag to create a navigation
+bar which will allow people to switch between my resume and my research experience. The span and script tags
+were used to create an element within the research.html txt that will give the current local time and date.
+The span tag was to keep the text in the same line, and the scrip tag was used to create the javascript
+code that will keep track of the time by checking them every second and updating the text appropriately.
+Finally the iframe tag was used to show a preview of my thesis as opposed to having a google drive link
+which would redirect the user to a different page. The use of the iframe tag also lets the user download
+the pdf from the page as opposed to redirecting them to an external page. 
+-->
+
+<html lang="EN">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="Lab1_hpache22.css">
+
+        <title> Henry's Resume </title>
+
+    </head>
+
+    <header>
+        <ul class="navigation-bar">
+            <li class="navigation-bar-list-item"><a class="navigation-bar-link-active" href="Lab1_hpache22.html" title = "Most up-to-date resume">Resume</a></li>
+            <li class="navigation-bar-list-item"><a class="navigation-bar-link" href="research.html" title = "Fun undergrad work">Physics Research</a></li>
+        </ul>
+    </header>
+    
+    <h1>
+        Henry Pacheco Cachon <br> 
+        <a class="emailLink" href="mailto:shenryp78@gmail.com" title="Email me!">shenryp78@gmail.com</a> <br>
+        818-590-5927
+     </h1>
+    <h2> Experience </h2>
+
+    <hr>
+
+    <div>
+        <h3> Support Center Technician | Colby College </h3>
+        <ul>
+            <li class="resume-items"> Trained 5 new student workers and taught 2 student workers how to maintain classroom computers. </li>
+            <li class="resume-items"> Collaborated with other student workers to decrease workflow by 70% and bring down response times to an hour. </li>
+            <li class="resume-items"> Resolved 50-60 issues with software and operating systems and diagnosed 25 hardware issues. </li>
+        </ul>
+    </div>
+    
+    <div>
+        <h3> Physics Teaching Assistant | Colby College </h3>
+        <ul>
+            <li class="resume-items"> Graded 18-20 assignments per week. </li>
+            <li class="resume-items"> Helped point out mistakes to students. </li>
+            <li class="resume-items"> Held office hours every thursday night to help students with their problem sets. </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3> Tutor | Colby College</h3>
+        <ul>
+            <li class="resume-items"> Tutored 2 first-year Physics students and strengthened their understanding of dynamics. </li>
+            <li class="resume-items"> Guided 2 sophomore Physics students and enhanced their understanding of Special Relativity. </li>
+            <li class="resume-items"> Improved the homework grades of 3 students by 10%. </li>
+        </ul>
+    </div>
+
+    <div>
+        <h3> Instructor | Lavner Education</h3>
+        <ul>
+            <li class="resume-items"> Aided the development of a tech showcase which is now used in 31 Lavner Education camps. </li>
+            <li class="resume-items"> Coordinated with supervisor to address behavioral problems with 4 campers and discuss further issues with parents. </li>
+            <li class="resume-items"> Adapted teaching techniques that improved the engagement of classes with 20-30 campers. </li>
+        </ul>
+    </div>
+    
+
+    <h2> Research Experience </h2>
+    <hr>
+    
+    <div>
+        <h3> Thesis </h3>
+        <ul>
+            <li class="resume-items"> Experimented with electromagnetically induced transparency (EIT) within a potassium cell. </li>
+            <li class="resume-items"> Programmed computational models to study how the hyperfine structure of potassium affects EIT. </li>
+            <li class="resume-items"> Created a Python library to automate the derivation of the density matrix and convert the matrix to a C++ array. </li>
+            <li class="resume-items"> Presented project during the Colby Liberal Arts Symposium. </li>
+
+        </ul>
+    </div>
+
+    <div>
+        <h3> Research Assistant (Measurement of Two-Photon Absorption) </h3>
+        <ul>
+            <li class="resume-items"> Improved the quality of data by modifying the optics used in the EIT experimental setup. </li>
+            <li class="resume-items"> Expanded computational models to a 6-level quantum system. </li>
+            <li class="resume-items"> Started development on a Java project which will automate the derivation of the density matrix for any n-level system. </li>
+        </ul>
+    </div>
+    
+
+    <h2> Education </h2>
+    <hr>
+    
+    <div>
+        <h3> Colby College </h3>
+        <h4> B.A. in Physics and Mathemtical Sciences </h4>
+        <ul>
+            <li class="resume-items"> 3.49 GPA </li>
+            <li class="resume-items"> Physics Honors Program </li>
+            <li class="resume-items"> Minor in Computer Science </li>
+        </ul>
+    </div>
+    
+
+    <h2> Other</h2>
+    <hr>
+    <ul>
+        <li class="resume-items"> <strong>Languages</strong>: English, Spanish, French. </li>
+        <li class="resume-items"> <strong>Technical Skills</strong>: Python, C++, Java, Linux, electronics design, CI/CD, Flask, Heroku, Docker, Postgresql.</li>
+        <li class="resume-items"> <strong>Programs</strong>: Adobe Creative Suite, Microsoft Office, Mathematica, Matlab, VEX.</li>
+    </ul>
+    
+    
+    <h2> Links </h2>
+    <hr>
+    <p>
+    <a href="https://github.com/hpache" title="My Github Profile">My personal Github profile</a> <br>
+    </p>
+    
+
+    
+
+</html>

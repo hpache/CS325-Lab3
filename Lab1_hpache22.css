@@ -1,0 +1,74 @@
+/* 
+File: Lab1_hpache22.css
+Name: Henry Pacheco Cachon
+Class: CS325, January 2022
+Lab: 02
+Due: 5 January 2022
+
+For this project, I changed the margin, padding, and overflow styles.
+I changed these styles to make the navigation bar prettier. That's pretty
+much it, the margin and padding was used to change the block size of each element within the 
+navigation bar. The overflow style was changed to keep the size of the bar constant. 
+This does mean that the navigation bar will only have a limited number of elements. If 
+one element is added and it overflows, then that element will not appear in the navigation bar at all.
+*/
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.emailLink {
+    text-decoration: none;
+    color: dodgerblue;
+    border-bottom: 1px dodgerblue dotted;
+}
+
+.emailLink:visited{
+    text-decoration: none;
+    color: purple;
+    border-bottom: 1px purple dotted;
+}
+
+.emailLink:hover{
+    color: blue;
+    text-decoration: underline;
+    border: none;
+}
+
+.navigation-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.navigation-bar-list-item {
+    float: left;
+}
+
+.navigation-bar-list-item .navigation-bar-link{
+    display: block;
+    color: dodgerblue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navigation-bar-list-item .navigation-bar-link:hover{
+    background-color: rgba(59, 57, 57, 0.877);
+}
+
+.navigation-bar .navigation-bar-link-active{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.resume-items {
+    list-style: inside square;
+}

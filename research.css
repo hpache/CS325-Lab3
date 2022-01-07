@@ -1,0 +1,29 @@
+/* 
+File: research.css
+Name: Henry Pacheco Cachon
+Class: CS325, January 2022
+Lab: 02
+Due: 5 January 2022
+
+In this css file I imported the Lab1_hpache22.css style to prevent repeating
+the same css code. For the table I used a collapsed border style and highlighted the 
+states in blue. I did this to distinguish the states from the actualy output of the 
+method in the code block. 
+
+*/
+
+@import url(Lab1_hpache22.css);
+
+
+table, th, tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.tr-states{
+    background-color: aqua;
+}
+
+.col-states{
+    background-color: aqua;
+}

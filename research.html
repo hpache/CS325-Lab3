@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<!--
+    File: research.html
+    Name: Henry Pacheco Cachon
+    Class: CS325, January 2022
+    Lab: 02
+    Due: 5 January 2022
+-->
+
+<html lang="EN">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="research.css">
+        <title> Research with Colby's Physics Department </title>
+    </head>
+
+    <header>
+        <ul class="navigation-bar">
+            <li class="navigation-bar-list-item"><a class="navigation-bar-link" href="Lab1_hpache22.html" title = "Most up-to-date resume">Resume</a></li>
+            <li class="navigation-bar-list-item"><a class="navigation-bar-link-active" href="research.html" title = "Fun undergrad work">Physics Research</a></li>
+        </ul>
+    </header>
+
+    <p>
+
+        <span id = "date"> Date </span>
+
+        <script>
+            n = new Date();
+            y = n.getFullYear();
+            m = n.getMonth() + 1;
+            d = n.getDate();
+            document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        </script>
+
+        <span id = "time"> Time </span>
+
+        <script>
+            timer();
+
+            function timer() {
+                n = new Date();
+                time = n.toLocaleTimeString();
+                document.getElementById("time").innerHTML = time;
+
+                setTimeout(timer,1000);
+            }
+        </script>
+
+
+    </p> 
+
+    <article>
+        <h1> My Thesis and Summer Research Work </h1>
+
+        Created on 01-04-2022 7:00 pm <time datetime="2021-01-02T19:00"> Saturday </time> 
+
+        <p> My research with the Colby Physics department during my undergrad career centers around this
+            phenomena known as Electromagnetically Induced Transparency (<abbr>EIT</abbr>). EIT is the phenomena in which 
+            a medium, usually a vapor, is rendered transparent due to the interference between two lasers and
+            the medium's energy levels. Essentially, two lasers are pointed towards a medium, one laser is 
+            resonant with one of the medium's energy levels (call it intermediate state), and a second laser
+            is resonant with a different energy level of the medium (call it excited state), but
+            it scans through different wavelengths. When the first laser is the only laser in resonance, the 
+            electrons in the medium are pumped from its ground state to its intermediate state. When both lasers
+            are in resonance, the electrons are pumped from the intermediate state to the excited state leaving
+            the intermediate state empty. When this happens, the absorption of the first later decreases significantly
+            rendering the medium transparent to the first laser.
+        </p>
+
+        <figure>
+            <img src="threeLevelModel.png" title = "Three Level Model" width="500" height="500">
+            <figcaption>Fig.1 - A diagram of EIT in a medium with three energy levels </figcaption>
+        </figure>
+
+        <p> My research on EIT was mostly focused on the computational modeling of our experiment. I was also
+            focused on improving the experiment's quality so that we can collect publish-worthy datasets and
+            start making isotope shift measurements of potassium. Although the experiments were really fun 
+            I personally enjoyed the computational aspect of the project. In order to model our experiment,
+            we would need to solve a system of coupled differential equations. The dimensionality of the differential
+            equations depends on the number of states. At the minimum, we must have three states, which results in a 
+            system of 9 differential equations; in order to fully simulate our experiment, we would need to have a total
+            of 24 states, which will result 576 coupled differential equations. Through some neat analysis we managed to
+            break down this problem into a matrix problem in which we would only need to solve a simple matrix equation, the 
+            only issue is that this matrix would be an n<sup>2</sup> by n<sup>2</sup> matrix which can lead to human error, not
+            to mention that typing in a matrix that big would be a pain.
+        </p> <br>
+
+        <p> My initial solution to this matrix problem was to create a program that will handle the analysis and output the required
+            matrix as lambda function in Python. During the 2021 Fall semester, I improved that system so that the matrix will be
+            written in C++. This was to improve the speed of our calculations and to also experiment with different computational methods.
+            Currently I am using a sparse matrix to model our experiment, but there are other methods that we can work with. 
+        </p><br>
+
+        <p> The following code is from the library I developed for this project. The method is called the 
+            <code>superOperatorElements</code> method, and it calculates elements of the super-operator matrix.
+            This matrix is responsible for taking into account the decay rates between energy levels within the 
+            medium (see figure 1).
+        </p>
+
+        <pre><code>
+            def superOperatorElements(self, allowedTransitions, left, right):
+
+                # Initializing placeholder list. Using a list for the sum() function
+                # Which just adds all the elements within a list!
+                self.lindbladMaster = []
+        
+                # Initializing input variables
+                self.allowedTransitions = allowedTransitions
+                self.left = left
+                self.right = right
+        
+                # This section goes through a possible transition, computes the lindblad equation
+                # and it then appends that result to the lindbladMaster list.
+                for transitions in self.allowedTransitions:
+                    self.i = transitions[0]
+                    self.f = transitions[1]
+        
+                    # Initialize Symbols
+                    self.gamma = Symbol('Gamma_{}{}'.format(self.i,self.f))
+                    self.rho_ii = Symbol('rho_{}{}'.format(self.i,self.i))
+                    self.rho_iright = Symbol('rho_{}{}'.format(self.i,self.right))
+                    self.rho_lefti = Symbol('rho_{}{}'.format(self.left,self.i))
+        
+                    # Initializing Bras and Kets for the Lindblad Equation
+                    self.iKet = OrthogonalKet(self.i)
+                    self.iBra = OrthogonalBra(self.i)
+                    
+                    self.fKet = OrthogonalKet(self.f)
+                    self.fBra = OrthogonalBra(self.f)
+        
+                    self.Right = OrthogonalKet(self.right)
+                    self.Left = OrthogonalBra(self.left)
+        
+                    # Lindblad equation, look in notes to see what this is!
+                    self.L = self.gamma * ( (self.Left*self.fKet).doit() * self.rho_ii * (self.fBra*self.Right).doit() \
+                            - 1/2*( (self.Left*self.iKet).doit() * self.rho_iright + self.rho_lefti * (self.iBra*self.Right).doit() ) )
+                    self.lindbladMaster.append(self.L)
+        
+                self.total = sum(self.lindbladMaster)
+        
+                return(self.total)
+        </code></pre>
+
+        <figure>
+            <table>
+
+                <colgroup>
+                    <col span="1" class="col-states">
+                    <col span="4">
+                </colgroup>
+
+                <tr class="tr-states">
+                    <td> </td>
+                    <td> </td>
+                    <td> State 1 </td>
+                    <td> State 2 </td>
+                    <td> State 3 </td>
+                </tr>
+                <tr>
+                    <td> State 1</td>
+                    <td> </td>
+                    <td> 0 </td>
+                    <td> 1/2 </td>
+                    <td> 0 </td>
+                </tr>
+                <tr>
+                    <td> State 2 </td>
+                    <td> </td>
+                    <td> 1/4 </td>
+                    <td> 0 </td>
+                    <td> 1/4 </td>
+                </tr>
+                <tr>
+                    <td> State 3 </td>
+                    <td> </td>
+                    <td> 0 </td>
+                    <td> 1/2 </td>
+                    <td> 0</td>
+                </tr>
+            </table>
+            <figcaption> Table 1 - Example output of the <code> superOperatorElements </code> method organized in a table </figcaption>
+        </figure>
+
+        <br>
+
+        <p> If you would like to learn more about this research, the following link will redirect you to 
+            my thesis written during the 2021 Spring semester.
+        </p>
+            
+        <details>
+            <summary> PDF of my Thesis </summary>
+            <iframe src="Thesis_2021.pdf" width="500" height="500"></iframe>
+        </details>
+
+        <p> These are some helpful terms for this article </p>
+        <dl>
+            <dt> super-operator </dt>
+            <dd> A matrix which holds multiple operators. In quantum mechanics, operators can be
+                described as matrices, so a super-operator would be the sum of these matrices
+            </dd>
+            <dt> State </dt>
+            <dd> A state in quantum mechanics describes the current behavior of an element. In this 
+                experiment, a state would describe the current energy level of an electron in a 
+                potassium atom. 
+            </dd>
+            <dt> Absorption </dt>
+            <dd> Absorption in this context describes the amount of light that is absorbed by a medium.
+            </dd>
+        </dl>
+
+    </article>
+
+</html>
