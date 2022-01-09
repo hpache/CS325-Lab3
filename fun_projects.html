@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<!--
+    File: fun_projects.html
+    Name: Henry Pacheco Cachon
+    Class: CS325, January 2022
+    Lab: 03
+    Due: 6 January 2022
+-->
+
+<html lang="EN">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="fun_projects.css">
+        <title> Projects Portfolio </title>        
+    </head>
+
+
+    <body>
+
+        <header>
+            <ul class="navigation-bar">
+                <li class="navigation-bar-list-item"><a class="navigation-bar-link" href="Lab1_hpache22.html" title = "Most up-to-date resume">Resume</a></li>
+                <li class="navigation-bar-list-item"><a class="navigation-bar-link" href="research.html" title = "Fun undergrad work">Physics Research</a></li>
+                <li class="navigation-bar-list-item"><a class="navigation-bar-link-active" href="fun_projects.html" title="Fun projects">Projects Portfolio</a></li>
+            </ul>
+        </header>
+
+        <h1> Simulation of Belousov Zhabotinsky reaction</h1>
+        
+
+
+        <div class="square">
+
+            <div>
+                <figure>
+                    <img class="photo" src="BZ_intro.png" alt="BZ Simulation" title="One frame of a bz reaction simulation">
+                    <figcaption> Fig. 1 - One frame of the BZ reaction simulation </figcaption>
+                </figure>
+            </div>
+
+            <p>
+                One of the projects that I am very proud of is a Java program that simulates Belousov Zhabotinsky reactions
+                using cellular automata. The reason why I am very proud of this project is because it is my first
+                computer simulation and I did not think that it was going to work properly. Before moving to the 
+                coding aspect of this project, I want to talk about Belousov Zhabotinsky reactions.
+            </p>
+            <p>
+                Belousov Zhabotinsky reactions are amazingly complicated and a great example of a moshpit of fields in STEM.
+                From the very first time it was presented to the world; physicist, chemists, and biologists have been fixated
+                on trying to determine a mechanism behind the reaction. Knowing basic chemistry, this type of reaction is freaky!
+                Imagine you are doing a titration and see the indicator go off, but then a few moments later the indicator
+                disappears and you have a transparent solution again! This type of behavior would indicate that your 
+                titration is going in reverse, which is not thermodynamically possible, yet this is exactly what you observe
+                in a Belousov Zhabotinsky reaction!
+            </p>
+            <p>
+                Now, Belousov Zhabotinsky reactions are not breaking physics, they are instead an example of physics in conditions
+                in which most people are not taught about. In the case of Belousov Zhabotinsky reactions, these reactions take place
+                in conditions in which the chemical system is far away from thermal equilibrium. In a Belousov Zhabotinsky reaction there are
+                two chemicals that interact with each other. This interaction can be described with two sets chemical reactions in which
+                chemical A is depleted while chemical B is increased and vice verse. During these chemical interactions, the energy available
+                to the system is decreasing, so these chemical reactions happen until the energy available is completely depleted (thermal equilibrium).
+
+            </p>
+
+            <p>
+                The code for this simulation is not as complicated as the mechanism behind the Belousov Zhabotinsky reaction. This project
+                was created during my CS321 class and I actually wrote it as an extension for a main project. The main project had us using
+                cellular automata to create a program that simulates Conway's Game of Life. The simulation of the Belousov Zhabotinsky reaction
+                is a lot like the program for Conway's Game of Life; the Game of Life has special kinds of cells, and those cells behave differently 
+                depending on their environment (i.e a cell can only be alive if it has a certain number of neighbors that are alive). In the 
+                Belousov Zhabotinsky reaction, each cell would represent some part of a medium containing concentrations of three different chemicals.
+                For each time step, all the cells will follow a chemical reaction involving all three chemicals, and the concentrations will be calculated
+                using the average calculation within a cell's neighborhood. This is a lot like Conway's Game of Life, except now, we are using a continuous 
+                form of cellular automata as opposed to a discrete form. 
+            </p>
+
+            <p>
+                More information about the program can be found in the following pdf file, and I also have a github repo containing the same 
+                CS231 project with both my implementations of Conway's Game of Life and the simulation for the Belousov Zhabotinsky reactions.
+            </p>
+
+            <details>
+                <summary> PDF of my CS321 Project Report </summary>
+                <iframe src="Project2Paper.pdf" width="500" height="500"></iframe>
+            </details>
+
+            <br>
+
+            <a href="http://github.com/hpache/CS231-Project2"> CS321 Project Repo </a>
+
+            <h2> Examples of Simulations </h2>
+
+            <div class="row">
+                <div class="column">
+                    <figure>
+                        <img src="BZSim_02_01_01.gif" alt="BZ simulation GIF">
+                    </figure>
+                </div>
+                <div class="column">
+                    <img src="BZSim_10_10_10.gif" alt="BZ simulation GIF">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column">
+                    <img src="BZSim_10_12_12.gif" alt="BZ simulation GIF">
+                </div>
+                <div class="column">
+                    <img src="BZSim_12_10_10.gif" alt="BZ simulation GIF">
+                </div>
+            </div>
+
+
+        </div>
+
+    </body>
+
+
+</html>

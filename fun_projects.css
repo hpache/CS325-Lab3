@@ -1,0 +1,65 @@
+/* 
+    File: fun_projects.css
+    Name: Henry Pacheco Cachon
+    Class: CS325, January 2022
+    Lab: 03
+    Due: 6 January 2022
+
+    There are three new properties that I used for this project: background-repeat
+    background-attachment, and content. Background-repeat and background-attachment
+    were used to create a gradient background and to have that gradient background 
+    follow the user as they scroll. I just did this to follow the theme that I had
+    for the BZ reaction simulations. The content property was used to create a 
+    grid of gifs within the page. 
+*/
+@import url(Lab1_hpache22.css);
+
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    background-image: linear-gradient(180deg, black, red);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+
+p{
+    text-align: justify;
+    font-size: 12pt;
+}
+
+.photo{
+    float: left;
+    margin: 5px;
+}
+
+.column{
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+a[href*="github.com/"]{
+    background: url(https://github.com/favicon.ico) no-repeat left center;
+    background-size: 20px;
+    padding: 19px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .column{
+        width: 100%;
+    }
+    
+}
